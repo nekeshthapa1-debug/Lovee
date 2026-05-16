@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pratima Ji ❤️</title>
+
+  <!-- Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffd3e0);
+      overflow:hidden;
+      padding:20px;
+    }
+
+    .container{
+      background:white;
+      width:100%;
+      max-width:420px;
+      padding:35px 25px;
+      border-radius:25px;
+      text-align:center;
+      box-shadow:0 10px 35px rgba(0,0,0,0.2);
+      animation: float 3s ease-in-out infinite;
+      position:relative;
+    }
+
+    @keyframes float{
+      0%{ transform:translateY(0px); }
+      50%{ transform:translateY(-8px); }
+      100%{ transform:translateY(0px); }
+    }
+
+    .heart{
+      font-size:3.2rem;
+      animation: heartbeat 1s infinite;
+      margin-bottom:15px;
+    }
+
+    @keyframes heartbeat{
+      0%{ transform:scale(1); }
+      25%{ transform:scale(1.15); }
+      50%{ transform:scale(1); }
+      75%{ transform:scale(1.2); }
+      100%{ transform:scale(1); }
+    }
+
+    h1{
+      color:#ff2e63;
+      font-size:2rem;
+      margin-bottom:15px;
+    }
+
+    .love-text{
+      color:#555;
+      font-size:1rem;
+      line-height:1.7;
+      margin-bottom:30px;
+    }
+
+    .highlight{
+      color:#ff2e63;
+      font-weight:bold;
+    }
+
+    .buttons{
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    button{
+      border:none;
+      padding:14px 24px;
+      border-radius:50px;
+      font-size:1rem;
+      cursor:pointer;
+      transition:0.3s;
+      font-weight:bold;
+    }
+
+    .yes-btn{
+      background:#ff2e63;
+      color:white;
+      box-shadow:0 5px 15px rgba(255,46,99,0.4);
+    }
+
+    .yes-btn:hover{
+      background:#ff004c;
+      transform:scale(1.08);
+    }
+
+    .no-btn{
+      background:#f1f1f1;
+      color:#333;
+      position:relative;
+    }
+
+    .message{
+      margin-top:25px;
+      font-size:1.2rem;
+      color:#ff004c;
+      font-weight:bold;
+      display:none;
+      animation: popup 0.5s ease;
+    }
+
+    @keyframes popup{
+      from{
+        transform:scale(0.5);
+        opacity:0;
+      }
+      to{
+        transform:scale(1);
+        opacity:1;
+      }
+    }
+
+    @media(max-width:480px){
+      h1{
+        font-size:1.7rem;
+      }
+
+      .love-text{
+        font-size:0.95rem;
+      }
+
+      .buttons{
+        flex-direction:column;
+      }
+
+      button{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="heart">❤️</div>
+
+    <h1>Pratima Ji 💖</h1>
+
+    <div class="love-text">
+      I love you more than words can say, and I’ll give you all the love in this world—enough to change the way you see 
+      <span class="highlight">'BOYS'</span> 💕
+      <br><br>
+      Lets make it forever? 🥹❤️
+    </div>
+
+    <div class="buttons">
+      <button class="yes-btn" onclick="showLove()">Yes Forever ❤️</button>
+      <button class="no-btn" id="noBtn">No 😢</button>
+    </div>
+
+    <div class="message" id="message">
+      AHHH 💞  
+      You just made me the happiest person alive 🥹❤️
+    </div>
+
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+
+    // Move "No" button randomly
+    function moveButton() {
+      const x = Math.random() * 220 - 110;
+      const y = Math.random() * 220 - 110;
+
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    noBtn.addEventListener("mouseover", moveButton);
+    noBtn.addEventListener("touchstart", moveButton);
+
+    // Show confetti + message
+    function showLove() {
+      document.getElementById("message").style.display = "block";
+
+      confetti({
+        particleCount: 250,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+
+      setTimeout(() => {
+        confetti({
+          particleCount: 120,
+          angle: 60,
+          spread: 70,
+          origin: { x: 0 }
+        });
+
+        confetti({
+          particleCount: 120,
+          angle: 120,
+          spread: 70,
+          origin: { x: 1 }
+        });
+      }, 400);
+    }
+  </script>
+
+</body>
+</html>
